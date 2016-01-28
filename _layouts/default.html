@@ -1,31 +1,46 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<title>{{ page.title }} - {{ site.title }}</title>
-		<link rel="stylesheet" href="{{site.baseurl}}stylesheets/styles.css">
-		<link rel="stylesheet" href="{{site.baseurl}}stylesheets/pygment_trac.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script src="{{site.baseurl}}javascripts/respond.js"></script>
-		<!--[if lt IE 9]>
-			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<!--[if lt IE 8]>
-		<link rel="stylesheet" href="stylesheets/ie.css">
-		<![endif]-->
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>{{ page.title }} - {{ site.title }}</title>
+	<link rel="icon" type="{{site.baseurl}}image/png" href="images/favicon.png"/>
+	<link rel="stylesheet" href="{{site.baseurl}}stylesheets/bootstrap.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="{{site.baseurl}}javascripts/bootstrap.min.js"></script>
+	<style>
+		.list-group-item-heading a {
+			color: #fff;
+		}
+		#content-body {
+			margin-top: 4em;
+		}
+	</style>
+</head>
 
-	</head>
-	<body>
-		<div id="header">
-			<nav>
-				<li class="fork"><a href="{{site.url}}">Home</a></li>
-			</nav>
+<body role="document">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://tastyfish.github.io">Tastyfish</a>
+			</div>
+			<div class="navbar-collapse collapse" id="navbar">
+				<ul class="nav navbar-nav">
+					<li><a role="button" href="https://github.com/Tastyfish">View on Github</a></li>
+				</ul>
+			</div>
 		</div>
-
+	</nav>
+	
+	<div class="container" role="main" id="content-body">
 		{{ content }}
-		<!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
-	</body>
+	</div>
+</body>
 </html>

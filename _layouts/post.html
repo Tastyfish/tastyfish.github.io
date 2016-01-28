@@ -2,13 +2,22 @@
 layout: default
 ---
 <div class="wrapper">
-	<section>
-		<div id="title">
-			<h1>{{ page.title }}</h1>
-			<span class="credits right">Posted {{ page.date | date_to_long_string }}</span>
-		</div>
+	<div id="page-header">
+		<h1>
+			{{ page.title }}&nbsp;<small>&mdash; Posted {{ page.date | date_to_long_string }}</small>
+		</h1>
+	</div>
 
-		{{ content }}
-
-	</section>
+	{{ content }}
+	
+	<nav>
+		<ul class="pager">
+			{% if page.previous %}
+			<li><a href="{{ site.basepath }}{{ page.previous.url }}">Previous</a></li>
+			{% endif %}
+			{% if page.next %}
+			<li><a href="{{ site.basepath }}{{ page.next.url }}">Next</a></li>
+			{% endif %}
+		</ul>
+	</nav>
 </div>
