@@ -13,10 +13,10 @@ layout: default
 	<nav>
 		<ul class="pager">
 			{% if page.previous %}
-			<li><a href="{{ site.basepath }}{{ page.previous.url }}">Previous</a></li>
+			<li class="previous"><a href="{{ site.basepath }}{{ page.previous.url }}"><span aria-hidden="true">&larr;</span> Previous</a></li>
 			{% endif %}
 			{% if page.next %}
-			<li><a href="{{ site.basepath }}{{ page.next.url }}">Next</a></li>
+			<li class="next"><a href="{{ site.basepath }}{{ page.next.url }}">Next <span aria-hidden="true">&rarr;</span></a></li>
 			{% endif %}
 		</ul>
 	</nav>
