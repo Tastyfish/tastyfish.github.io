@@ -1,23 +1,21 @@
 ---
 layout: default
 ---
-<div class="wrapper">
-	<div id="page-header">
-		<h1>
-			{{ page.title }}&nbsp;<small>&mdash; Posted {{ page.date | date_to_long_string }}</small>
-		</h1>
-	</div>
-
-	{{ content }}
-
-	<nav aria-label="Page navigation">
-		<ul class="pagination">
-			{% if page.previous %}
-			<li class="page-item"><a class="page-link" href="{{ site.basepath }}{{ page.previous.url }}"><span aria-hidden="true">&laquo;</span> Previous</a></li>
-			{% endif %}
-			{% if page.next %}
-			<li class="page-item"><a class="page-link" href="{{ site.basepath }}{{ page.next.url }}">Next <span aria-hidden="true">&raquo;</span></a></li>
-			{% endif %}
-		</ul>
-	</nav>
+<div id="page-header">
+	<h1>
+		{{ page.title }}&nbsp;<small>&mdash; Posted {{ page.date | date_to_long_string }}</small>
+	</h1>
 </div>
+
+{{ content }}
+
+<nav aria-label="Page navigation">
+	<ul class="pagination">
+		{% if page.previous %}
+		<li class="page-item"><a class="page-link" href="{{ site.basepath }}{{ page.previous.url }}"><span aria-hidden="true">&laquo;</span> Previous</a></li>
+		{% endif %}
+		{% if page.next %}
+		<li class="page-item"><a class="page-link" href="{{ site.basepath }}{{ page.next.url }}">Next <span aria-hidden="true">&raquo;</span></a></li>
+		{% endif %}
+	</ul>
+</nav>
