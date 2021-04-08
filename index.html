@@ -1,22 +1,24 @@
 ---
 ---
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<title>{{ site.title }}</title>
 	<link rel="icon" type="image/png" href="images/favicon.png"/>
 	<link rel="stylesheet" href="stylesheets/bootstrap.min.css"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="javascripts/bootstrap.min.js"></script>
+	<script src="javascripts/bootstrap.bundle.min.js"></script>
 	<style>
 		.list-group-item-heading a {
 			color: #fff;
 		}
 		#page-header {
 			margin-top: 4em;
+		}
+		body {
+			background-color: #111;
+			color: #eee;
 		}
 	</style>
 </head>
@@ -31,20 +33,15 @@
 		ga('create', 'UA-70465958-1', 'auto');
 		ga('send', 'pageview');
 	</script>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
 		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="http://tastyfish.github.io">Tastyfish</a>
-			</div>
-			<div class="navbar-collapse collapse" id="navbar">
-				<ul class="nav navbar-nav">
-					<li><a role="button" href="https://github.com/Tastyfish">View on Github</a></li>
+			<a class="navbar-brand" href="http://tastyfish.github.io">Tastyfish</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-sm-0">
+					<li class="nav-item"><a class="nav-link" href="https://github.com/Tastyfish">View on Github</a></li>
 				</ul>
 			</div>
 		</div>
@@ -53,22 +50,27 @@
 	<div class="container" role="main">
 		<div id="page-header">
 			<h1>
-				{{ site.title }}<br>
-				<small>Things I've made that are worth showing publically might go here.</small>
+				{{ site.title }}
 			</h1>
+			<p class="m-4">
+				This site hosts some web toys worth showing to the public.
+			</p>
 		</div>
 
 		<h3 id="#latest">Latest Posts</h3>
 
-		<ul class="list-group">
+		<div class="list-group">
 			{% for post in site.posts %}
-			<li class="list-group-item">
-				<h4 class="list-group-item-heading"><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<small>&mdash;&nbsp;{{ post.date | date_to_long_string }}</small></h4>
-				<p class="list-group-item-text">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
-			</li>
+			<a href="{{ post.url }}" class="list-group-item list-group-item-action list-group-item-dark">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">{{ post.title }}</h5>
+					<small>{{ post.date | date_to_long_string }}</small>
+				</div>
+				<p>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
+			</a>
 			{% endfor %}
-		</ul>
-		
+		</div>
+
 		<center><small>Copyright &copy; {{ site.time | date: "%Y" }} Tastyfish</small></center>
 	</div>
 </body>
