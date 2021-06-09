@@ -1,7 +1,7 @@
 # Site settings
 title: "Tastyfish's Site"
 baseurl: "/" # the subpath of your site, e.g. /blog/
-url: "http://tastyfish.github.io" # the base hostname & protocol for your site
+url: "https://tastyfish.github.io" # the base hostname & protocol for your site
 github_username:  tastyfish
 
 # Build settings
