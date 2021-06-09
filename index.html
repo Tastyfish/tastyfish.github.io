@@ -1,79 +1,33 @@
 ---
+layout: default
 ---
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<title>{{ site.title }}</title>
-	<link rel="icon" type="image/png" href="{{ "/images/favicon.png" | absolute_url }}"/>
-	<link rel="stylesheet" href="{{ "/stylesheets/bootstrap.min.css" | absolute_url }}"/>
-	<script src="{{ "/javascripts/bootstrap.bundle.min.js" | absolute_url }}"></script>
-	<style>
-		#page-header {
-			margin-top: 4em;
-		}
-		body {
-			background-color: #111;
-		}
-	</style>
-</head>
-<body role="document">
-	<script>
-		// google analytics
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<div id="page-header">
+	<h2>
+		{{ site.title }}
+	</h2>
+	<p class="m-4">
+		This site hosts some web toys worth showing to the public. Click <a href="https://github.com/Tastyfish">here</a> or "View on Github" above to view my projects.
+	</p>
+</div>
 
-		ga('create', 'UA-70465958-1', 'auto');
-		ga('send', 'pageview');
-	</script>
-	<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
-		<div class="container">
-			<a class="navbar-brand" href="/">Tastyfish</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-	      <span class="navbar-toggler-icon"></span>
-	    </button>
-			<div class="collapse navbar-collapse" id="navbarContent">
-				<ul class="navbar-nav me-auto mb-2 mb-sm-0">
-					<li class="nav-item"><a class="nav-link" href="https://github.com/Tastyfish">View on Github</a></li>
-				</ul>
+<h3 id="#latest">Latest Posts</h3>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+	{% for post in site.posts %}
+	<div class="col">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{{ post.title }}</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Posted on {{ post.date | date_to_long_string }}</h6>
+				<p class="card-text">{{ post.excerpt | strip_html }}</p>
+				<a href="{{ post.url }}" class="card-link">View Post</a>
+				{% if post.hoturl %}
+					<a href="{{ post.hoturl }}" class="card-link btn btn-outline-primary">View Content</a>
+				{% endif %}
 			</div>
 		</div>
-	</nav>
-
-	<div class="container" role="main">
-		<div id="page-header">
-			<h2>
-				{{ site.title }}
-			</h2>
-			<p class="m-4">
-				This site hosts some web toys worth showing to the public. Click <a href="https://github.com/Tastyfish">here</a> or "View on Github" above to view my projects.
-			</p>
-		</div>
-
-		<h3 id="#latest">Latest Posts</h3>
-
-		<div class="row row-cols-1 row-cols-md-2 g-4">
-			{% for post in site.posts %}
-			<div class="col">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">{{ post.title }}</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Posted on {{ post.date | date_to_long_string }}</h6>
-						<p class="card-text">{{ post.excerpt | strip_html }}</p>
-						<a href="{{ post.url }}" class="card-link">View Post</a>
-						{% if post.hoturl %}
-							<a href="{{ post.hoturl }}" class="card-link btn btn-outline-primary">View Content</a>
-						{% endif %}
-					</div>
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-
-		<center class="my-4"><small>Copyright &copy; {{ site.time | date: "%Y" }} Tastyfish</small></center>
 	</div>
-</body>
-</html>
+	{% endfor %}
+</div>
+
+<center class="my-4"><small>Copyright &copy; {{ site.time | date: "%Y" }} Tastyfish</small></center>
