@@ -1,12 +1,15 @@
-<html>
-<body>
-	<input id="ckey" placeholder="ckey">
-	<button onclick='clickey()'>Get age!</button>
+---
+layout: default
+---
+<form class="row g-3" onsubmit="clickey(event)">
+	<input class="form-control col-auto" id="ckey" placeholder="ckey">
+	<button class="btn btn-primary col-auto" type="submit">Get age!</button>
 	<div>
 		Age: <span id="result"></span>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
 
 var joinedskRe = /^\s*joined\s*=\s*"(\d+)-(\d+)-(\d+)"/m;
 
@@ -28,12 +31,13 @@ function getAge(ckey, rfn) {
 		});
 }
 
-function clickey() {
+function clickey(event) {
+	console.log(event);
 	getAge($("#ckey").val(), function(value) {
 		$("#result").html(value.toString());
 	});
+
+	event.preventDefault();
 }
 
-	</script>
-</body>
-</html>
+</script>
